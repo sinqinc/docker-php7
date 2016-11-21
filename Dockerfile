@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
 	libbz2-dev \
 	libxml2-dev \
 	mcrypt \
+	libpq-dev \
 	libcurl4-openssl-dev \
     && docker-php-ext-install iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
