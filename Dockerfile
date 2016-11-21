@@ -26,7 +26,9 @@ RUN apt-get update && apt-get install -y \
    && docker-php-ext-install calendar \
    && docker-php-ext-install intl \
    && docker-php-ext-install xsl \
-	&& docker-php-ext-install mysql
+   && docker-php-ext-install xml \
+   && docker-php-ext-install tokenizer \
+	&& docker-php-ext-install pgsql
 
 RUN apt-get install -y \
 php-pear curl zlib1g-dev libncurses5-dev
