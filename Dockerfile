@@ -34,19 +34,26 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y \
 php-pear curl zlib1g-dev libncurses5-dev
 
-RUN curl -L http://pecl.php.net/get/memcache-2.2.7.tgz >> /usr/src/php/ext/memcache.tgz && \
-tar -xf /usr/src/php/ext/memcache.tgz -C /usr/src/php/ext/ && \
-rm /usr/src/php/ext/memcache.tgz && \
-docker-php-ext-install memcache-2.2.7
+#RUN curl -L http://pecl.php.net/get/memcache-2.2.7.tgz >> /usr/src/php/ext/memcache.tgz && \
+#tar -xf /usr/src/php/ext/memcache.tgz -C /usr/src/php/ext/ && \
+#rm /usr/src/php/ext/memcache.tgz && \
+#docker-php-ext-install memcache-2.2.7
 
-RUN apt-get install -y \
-php-pear curl libmemcached-dev zlib1g-dev libncurses5-dev
+#RUN apt-get install -y \
+#php-pear curl libmemcached-dev zlib1g-dev libncurses5-dev
 
-RUN curl -L http://pecl.php.net/get/memcached-2.2.0.tgz >> /usr/src/php/ext/memcached.tgz && \
-tar -xf /usr/src/php/ext/memcached.tgz -C /usr/src/php/ext/ && \
-rm /usr/src/php/ext/memcached.tgz && \
-docker-php-ext-install memcached-2.2.0
+#RUN curl -L http://pecl.php.net/get/memcached-2.2.0.tgz >> /usr/src/php/ext/memcached.tgz && \
+#tar -xf /usr/src/php/ext/memcached.tgz -C /usr/src/php/ext/ && \
+#rm /usr/src/php/ext/memcached.tgz && \
+#docker-php-ext-install memcached-2.2.0
 
+RUN apt-get -y install libmemcached-dev libmemcached11
+RUN git clone https://github.com/php-memcached-dev/php-memcached && cd php-memcached && git checkout -b php7 origin/php7
+WORKDIR /php-memcached
+RUN /usr/bin/phpize 
+RUN ./configure && make && make install
+
+RUN apt-get install -y memcached 
 
 RUN apt-get install -y php-pear curl zlib1g-dev libncurses5-dev
 
