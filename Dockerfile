@@ -47,6 +47,18 @@ php-pear curl zlib1g-dev libncurses5-dev
 #rm /usr/src/php/ext/memcached.tgz && \
 #docker-php-ext-install memcached-2.2.0
 
+# Download and Installing php libraries 
+RUN apt-get -y install php-pear php5-dev 
+
+# Download and Installing git and vim 
+RUN apt-get -y install git vim gcc
+
+# Download and Installing zip unzip 
+RUN apt-get -y install zip unzip 
+
+# install PHP PEAR extensions 
+RUN apt-get -y install wget 
+
 RUN apt-get -y install libmemcached-dev libmemcached11
 RUN git clone https://github.com/php-memcached-dev/php-memcached && cd php-memcached && git checkout -b php7 origin/php7
 WORKDIR /php-memcached
