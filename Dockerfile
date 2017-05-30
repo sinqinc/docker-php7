@@ -34,6 +34,9 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y \
 php-pear curl zlib1g-dev libncurses5-dev
 
+RUN apt-get install -y libxml2-dev && \
+    docker-php-ext-install soap
+
 #RUN curl -L http://pecl.php.net/get/memcache-2.2.7.tgz >> /usr/src/php/ext/memcache.tgz && \
 #tar -xf /usr/src/php/ext/memcache.tgz -C /usr/src/php/ext/ && \
 #rm /usr/src/php/ext/memcache.tgz && \
