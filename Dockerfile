@@ -79,12 +79,12 @@ RUN docker-php-ext-install ldap
 
 ENV PHPREDIS_VERSION php7
 
-RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz  \
+RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/php7.tar.gz  \
     && mkdir /tmp/redis \
     && tar -xf /tmp/redis.tar.gz -C /tmp/redis \
     && rm /tmp/redis.tar.gz \
     && ( \
-    cd /tmp/redis/phpredis-$PHPREDIS_VERSION \
+    cd /tmp/redis/phpredis-php7 \
     && phpize \
         && ./configure \
     && make -j$(nproc) \
