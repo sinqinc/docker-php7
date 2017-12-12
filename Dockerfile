@@ -99,5 +99,6 @@ RUN docker-php-ext-install opcache
 # Install APCu
 RUN pecl install apcu
 
+
 EXPOSE 9000
 CMD ["php-fpm"]
