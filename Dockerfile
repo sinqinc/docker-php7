@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 	mcrypt \
 	libpq-dev \
 	libcurl4-openssl-dev \
-    && docker-php-ext-install iconv mcrypt \
+    && docker-php-ext-install iconv \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
    && docker-php-ext-install mbstring \
@@ -30,7 +30,9 @@ RUN apt-get update && apt-get install -y \
    && docker-php-ext-install xsl \
    && docker-php-ext-install xml \
    && docker-php-ext-install tokenizer \
-	&& docker-php-ext-install pgsql
+	&& docker-php-ext-install pgsql \
+   && pecl install mcrypt-1.0.1 \
+   && docker-php-ext-enable mcrypt
 
 RUN apt-get install -y \
 php-pear curl zlib1g-dev libncurses5-dev
