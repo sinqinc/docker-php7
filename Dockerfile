@@ -37,7 +37,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
    && docker-php-ext-enable mcrypt
 
 RUN apt-get install -y \
-php-pear curl zlib1g-dev libncurses5-dev
+curl zlib1g-dev libncurses5-dev
 
 RUN apt-get install -y libxml2-dev && \
     docker-php-ext-install soap
@@ -56,7 +56,7 @@ RUN apt-get install -y libxml2-dev && \
 #docker-php-ext-install memcached-2.2.0
 
 # Download and Installing php libraries 
-RUN apt-get -y install php-pear php5-dev 
+#RUN apt-get -y install php-pear php5-dev 
 
 # Download and Installing git and vim 
 RUN apt-get -y install git vim gcc
@@ -76,7 +76,7 @@ RUN git clone https://github.com/php-memcached-dev/php-memcached && cd php-memca
 
 RUN apt-get install -y memcached 
 
-RUN apt-get install -y php-pear curl zlib1g-dev libncurses5-dev
+RUN apt-get install -y curl zlib1g-dev libncurses5-dev
 
 RUN apt-get update && apt-get install -y libldap2-dev
 RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/
