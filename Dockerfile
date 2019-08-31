@@ -2,7 +2,7 @@ FROM php:fpm
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	ssmtp \
+	msmtp \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
