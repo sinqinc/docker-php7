@@ -1,6 +1,7 @@
 FROM php:7.2-fpm
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	ssmtp \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
