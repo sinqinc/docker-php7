@@ -55,7 +55,7 @@ RUN apt-get install -y libxml2-dev && \
 #docker-php-ext-install memcached-2.2.0
 
 # Download and Installing php libraries 
-RUN apt-get -y install  php5-dev 
+#RUN apt-get -y install  php5-dev 
 
 # Download and Installing git and vim 
 RUN apt-get -y install git vim gcc
