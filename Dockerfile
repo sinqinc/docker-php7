@@ -68,12 +68,12 @@ RUN apt-get -y install wget
 
 RUN apt-get -y install libmemcached-dev libmemcached11
 WORKDIR /tmp
-RUN git clone https://github.com/php-memcached-dev/php-memcached && cd php-memcached && git checkout -b php7 origin/php7 && phpize && ./configure && make && make install
+#RUN git clone https://github.com/php-memcached-dev/php-memcached && cd php-memcached && git checkout -b php7 origin/php7 && phpize && ./configure && make && make install
 #WORKDIR /tmp/php-memcached
 #RUN /usr/bin/phpize 
 #RUN ./configure && make && make install
 
-RUN apt-get install -y memcached 
+#RUN apt-get install -y memcached 
 
 RUN apt-get install -y curl zlib1g-dev libncurses5-dev
 
