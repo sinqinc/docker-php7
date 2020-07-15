@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:7.3-fpm
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -103,6 +103,12 @@ RUN docker-php-ext-install opcache
 
 # Install APCu
 RUN pecl install apcu
+
+# Install imagick
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+	&& docker-php-ext-enable imagick
 
 EXPOSE 9000
 CMD ["php-fpm"]
